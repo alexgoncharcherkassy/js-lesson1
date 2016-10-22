@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lesson1</title>
+    <style>
+        .div-block {
+            display: block;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <p id="array" class="div-block"></p>
+    <p id="min" class="div-block"></p>
+    <p id="max" class="div-block"></p>
+    <p id="sum" class="div-block"></p>
+</body>
+<script>
+    var arr = [];
+    for (var i = 0; i < 10; i++) {
+        arr.push(Math.floor(Math.random() * (-10)));
+    }
+
+//    Array.prototype.min = function() {
+//        return Math.min.apply( Math, this );
+//    };
+//    Array.prototype.max = function() {
+//        return Math.max.apply( Math, this);
+//    };
+    idArray = document.getElementById('array');
+    idArray.innerHTML = 'Start array: [ ' + arr.join() + ' ]';
+    idMin = document.getElementById('min');
+    idMin.innerHTML = 'Min: ' + minElement(arr);
+    idMax = document.getElementById('max');
+    idMax.innerHTML = 'Max: ' + maxElement(arr);
+    idSum = document.getElementById('sum');
+    idSum.innerHTML = 'Sum: ' + sumElements(arr);
+
+    function maxElement(array) {
+        return Math.max.apply( Math, array );
+    }
+
+    function minElement(array) {
+        return Math.min.apply( Math, array );
+    }
+
+    function sumElements(array) {
+        return arr.reduce(function(sum, current) {
+            return sum + current;
+        }, 0);
+    }
+</script>
+</html>
